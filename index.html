@@ -15,5 +15,18 @@
             document.getElementById('hasil').textContent = `Terima kasih, ${nama}! Kami akan menghubungi Anda di ${email}.`;
             this.reset();
         });
+        document.getElementById('carbon-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const jarak = parseFloat(document.getElementById('jarak').value);
+            const listrik = parseFloat(document.getElementById('listrik').value);
+            const emisiPerKmKendaraan = 0.192;
+            const emisiPerKwhListrik = 0.85;  
+            const emisiKendaraanTahunan = jarak * 52 * emisiPerKmKendaraan;
+            const emisiListrikTahunan = listrik * 12 * emisiPerKwhListrik; 
+            const totalEmisiTahunan = emisiKendaraanTahunan + emisiListrikTahunan;
+            document.getElementById('hasil-co2').textContent =
+                `Total estimasi emisi CO₂ Anda: ${totalEmisiTahunan.toFixed(2)} kg/tahun.`;
+        });
+    </script>
 </body>
 </html>
