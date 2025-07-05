@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumi Kita, Tanggung Jawab Kita</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            document.getElementById('hasil').textContent = `Terima kasih, ${nama}! Kami akan menghubungi Anda di ${email}.`;
+            this.reset();
+        });
+</body>
+</html>
